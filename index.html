@@ -465,8 +465,8 @@
                     <div class="grid md:grid-cols-2 gap-8 md:gap-12">
 
                         <div class="space-y-1">
-                            <p class="font-serif text-base text-brown-800 font-medium">Marcia Ximena Aldana Pintado</p>
-                            <p class="font-serif text-base text-brown-800 font-medium">Carlos Martin Rodriguez Nuñez</p>
+                            <p class="font-serif text-base text-brown-800 font-medium">Yrma Maria Hose Maldonado</p>
+                            <p class="font-serif text-base text-brown-800 font-medium">José Alberto Vasquez Salazar</p>
                         </div>
                     </div>
                 </div>
@@ -561,7 +561,7 @@
                             </span>
                             <div class="pl-6 md:pl-10 md:col-start-2">
                                 <span class="text-brown-600 font-serif text-lg font-semibold">02:00 PM</span>
-                                <h3 class="font-serif text-xl text-brown-800 font-light mt-0.5">Llegada a Boro</h3>
+                                <h3 class="font-serif text-xl text-brown-800 font-light mt-0.5">Llegada a Boro y Orquesta Digital</h3>
                                 <p class="text-brown-800/90 text-xs leading-relaxed max-w-sm">
                                     Llegamos a los verdes campos de Boro, donde tendremos una bienvenida con la música de nuestra orquesta digital, que tocará desde las 2:00 PM.
                                 </p>
@@ -585,16 +585,30 @@
                             </div>
                         </div>
 
-                        <!-- 07:00 PM -->
+                        <!-- 07:20 PM -->
                         <div class="relative md:w-full md:grid md:grid-cols-2 md:gap-8 mb-12 items-center">
                             <span class="absolute -left-[21px] md:left-1/2 md:transform md:-translate-x-1/2 bg-brown-50 border border-brown-600 text-brown-700 w-10 h-10 rounded-full flex items-center justify-center z-20 font-serif shadow-sm text-xs font-semibold">
                                 07
                             </span>
                             <div class="pl-6 md:pl-10 md:col-start-2">
                                 <span class="text-brown-600 font-serif text-lg font-semibold">07:20 PM</span>
+                                <h3 class="font-serif text-xl text-brown-800 font-light mt-0.5">Hora Loca</h3>
+                                <p class="text-brown-800/90 text-xs leading-relaxed max-w-sm">
+                                    Nos divertiremos con la Hora Loca, un espectáculo lleno de energía, música y diversión para todos los invitados.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 08:00 PM -->
+                        <div class="relative md:w-full md:grid md:grid-cols-2 md:gap-8 mb-12 items-center">
+                            <span class="absolute -left-[21px] md:left-1/2 md:transform md:-translate-x-1/2 bg-brown-50 border border-brown-600 text-brown-700 w-10 h-10 rounded-full flex items-center justify-center z-20 font-serif shadow-sm text-xs font-semibold">
+                                08
+                            </span>
+                            <div class="pl-6 md:pl-10 md:col-start-2">
+                                <span class="text-brown-600 font-serif text-lg font-semibold">08:00 PM</span>
                                 <h3 class="font-serif text-xl text-brown-800 font-light mt-0.5">Sonido DJ</h3>
                                 <p class="text-brown-800/90 text-xs leading-relaxed max-w-sm">
-                                    La noche continua con el sonido musical y la pista de baile.
+                                    La música continuará con nuestro DJ, quien nos hará bailar hasta el amanecer con los mejores éxitos y ritmos.
                                 </p>
                             </div>
                         </div>
@@ -712,9 +726,6 @@
                             <i class="fa-solid fa-circle-info text-brown-500 mr-1"></i>
                             <strong>Sugerencias:</strong> La recepción se llevará a cabo en una estancia campestre con césped natural y al aire libre. Te aconsejamos elegir un calzado que te brinde estabilidad (evitar tacones de aguja muy delgados) y llevar abrigo.
                         </div>
-                        <div class="border-t border-brown-100 pt-4 mt-5 text-[10px] uppercase tracking-widest text-brown-600 font-semibold text-center md:text-left">
-                            Varones: Esmoquin o terno · Damas: Vestido o coctel elegante
-                        </div>
                     </div>
 
                     <!-- Tarjeta: Preguntas Frecuentes (FAQ) -->
@@ -816,7 +827,7 @@
                         <span class="text-brown-500 font-serif italic text-lg block">RSVP</span>
                         <h2 class="font-serif text-2xl md:text-3xl text-brown-800 font-light mt-0.5">Confirmar Asistencia</h2>
                         <div class="w-10 h-[1px] bg-brown-300 mx-auto mt-3"></div>
-                        <p class="text-brown-600 text-[10px] uppercase tracking-wider font-semibold mt-3">Agradecemos confirmar antes del 13 de Julio de 2026</p>
+                        <p class="text-brown-600 text-[10px] uppercase tracking-wider font-semibold mt-3">Agradecemos confirmar antes del 11 de Julio de 2026</p>
                     </div>
 
                     <form id="rsvp-form" onsubmit="sendRSVP(event)" class="space-y-5">
@@ -888,35 +899,134 @@
         // Puedes cambiar, agregar o quitar invitados de esta lista fácilmente.
         // ==============================================================
         const GUEST_MAP = {
-            1: ["Silvana Aldana y Alexandra", 2],
-            2: ["Ana Aldana", 1],
-            3: ["Julio Aldana y Esposa", 2],
-            4: ["Franklin Aldana y Esposa", 2],
-            5: ["Frida Aldana y Familia", 3],
-            6: ["Gloria Aldana y Familia", 2],
-            7: ["Lucho Allende y Esposa", 2],
-            8: ["Paty Aldana y Familia", 2],
-            9: ["Manuela Quintana y Familia", 8],
-            10: ["Ana Quintana y Familia", 2],
-            11: ["Martin Rodriguez y Esposa", 2],
-            12: ["Frida Pintado Aldana y Familia", 2],
-            13: ["Jessica Segura Aldana y Familia", 2],
-            14: ["Maricarmen Zelada Aldana y Familia", 2],
-            15: ["Carlos Paico y Esposa", 2],
-            16: ["Renzo Justo y Esposa", 2],
-            17: ["Pedro Yovera y Familia", 5],
-            18: ["Yordan Yovera y Esposa", 2],
-            19: ["Jorge Peralez y Esposa", 2],
-            20: ["Edilmer Linares", 2],
-            21: ["Kevin Soraluz y Esposa", 2],
-            22: ["Emerson Soriano y Esposa", 2],
-            23: ["Nicolas Soriano y Familia", 2],
-            24: ["Franklin Mondragón y Esposa", 2],
-            25: ["Christian Yarlequé y Esposa", 2],
-            26: ["Yhomer Guillen y Esposa", 2],
-            27: ["Jose Arrascue y Esposa", 2],
-            28: ["Luis Barreto y Esposa", 2],
-            29: ["Mauricio Soraluz y Esposa", 9],
+            ss1: ["Silvana Aldana y Alexandra", 2],
+            aa2: ["Ana Aldana", 1],
+            jj3: ["Julio Aldana y Esposa", 2],
+            ff4: ["Franklin Aldana y Esposa", 2],
+            ff5: ["Frida Aldana y Familia", 3],
+            gg6: ["Gloria Aldana y Esposo", 2],
+            ll7: ["Lucho Allende y Esposa", 2],
+            pp8: ["Paty Aldana", 2],
+            mm9: ["Manuela Quintana y Familia", 8],
+            aa10: ["Ana Quintana", 2],
+            mm11: ["Marcia Pintado Aldana", 2],
+            ff12: ["Frida Pintado Aldana y Esposo", 2],
+            jj13: ["Jessica Segura Aldana y Esposo", 2],
+            mm14: ["Maricarmen Zelada Aldana", 2],
+            cc15: ["Carlos Paico y Esposa", 2],
+            rr16: ["Renzo Justo", 2],
+            pp17: ["Pedro Yovera y Familia", 5],
+            yy18: ["Yordan Yovera y Esposa", 2],
+            jj19: ["Jorge Peralez y Esposa", 2],
+            ee20: ["Edilmer Linares", 2],
+            kk21: ["Kevin Soraluz y Esposa", 2],
+            ee22: ["Emerson Soriano y Esposa", 2],
+            nn23: ["Nicolas Soriano", 2],
+            ff24: ["Franklin Mondragón y Esposa", 2],
+            //cc25: ["Christian Yarlequé y Esposa", 2],
+            yy26: ["Yhomer Guillen y Esposa", 2],
+            jj27: ["Jose Arrascue y Esposa", 2],
+            ll28: ["Luis Barreto y Esposa", 2],
+            mm29: ["Mauricio Soraluz y Esposa", 9],
+            ff30: ["Fernando Torres Cornejo y Familia", 5],
+            mm31: ["Magdalena Cornejo", 1],
+            rr32: ["Rosa Cornejo y Esposo", 2],    
+            aa33: ["Astrid Nicolle", 2],
+            cc34: ["Cindy Villena", 2],
+            jj35: ["Jorge Ramirez Córdoba y Esposa", 2],
+            rr36: ["Ricardo Ramirez y Esposa", 2],
+            ll37: ["Luis Cuzquen Varias y Esposa", 2],
+            bb38: ["Bruno Marino Burgos y Esposa", 2],
+            jj39: ["Juan Carlos Godoy Balarezo y Esposa", 2],
+            ee40: ["Etel Lizabel Vasquez Uriarte", 2],
+            ee41: ["Edwin Alarcón Díaz y Esposa", 2],
+            tt42: ["Tito Vidaurre Zabala y Esposa", 2],
+            kk43: ["Katherin Garcia Díaz", 2],
+            ll44: ["Loidy Todani Rea Abad", 2],
+            aa45: ["Álbaro Guevara Rodas y Esposa", 2],
+            jj46: ["Juan José Vega Chavez y Esposa", 2],
+            tt47: ["Tito Rios y Esposa", 2],
+            kk48: ["Katia Roxana Portocarrero", 2],
+            jj49: ["José Guardado Palomino y Esposa", 2],
+            jj50: ["Jose Alberto Vasquez Salazar y Esposa", 2],
+            nn51: ["Nancy Díaz Cabrejos", 3],
+            rr52: ["Rosario Díaz Garcia", 2],
+            ee53: ["Ester Díaz Garcia", 2],
+            cc54: ["Carlos Díaz Cabrejos", 2],
+            nn55: ["José Luis Velásquez Gamarra y Familia", 4],
+            ff56: ["Jhon Urbina Nole y Familia", 4],
+            jj57: ["Juana Díaz Cabrejos", 2],
+            kk58: ["Karoline Nicole Correa Díaz", 2],
+            mm59: ["Marcia Correa Díaz", 2],
+            mm60: ["Mauro Correa y Esposa", 2],
+            mm61: ["Marta Díaz Cabrejos", 1],
+            rr62: ["Richard Castillo Gil y Esposa", 2],
+            hh63: ["Hubert Maco Mayanga y Esposa", 4],
+            vv64: ["Vicky Díaz Cabrejos y Magali", 2],
+            ee65: ["Eugenio Cabrera y Familia", 4],
+            gg66: ["Geraldine Cabrera Díaz", 2],
+            ee67: ["Ester Susana Alarcón Díaz", 2],
+            ll68: ["Liborio Alarcón y Familia", 3],
+            mm69: ["Maruja Díaz Cabrejos", 1],
+            pp70: ["Carlos Pino Saavedra", 1],
+            mm71: ["Meliza Díaz Garcia", 2],
+            tt72: ["klevert Ronal Torres y Esposa", 2],
+            cc73: ["Christian Samamé Vidaurre", 2],
+            ss74: ["Samuel Samamé Vidaurre", 2],
+            yy75: ["Yaqui Díaz Carranza", 1],
+            ll76: ["Linda Carranza Contretas", 1],
+            aa77: ["Ángel Carranza Díaz y Esposa", 2],
+            aa78: ["Ángela Vidaurre", 2],
+            aa79: ["Ángel Vidaurre", 2],
+            mm80: ["Melissa Pizarro Vidaurre", 2],
+            ll81: ["Pamela Lozada Vidaurre", 2],
+            jj82: ["Johana Lozana Vidaurre", 2],
+            ww83: ["Willy Lozada Vidaurre", 2],
+            ee84: ["Eduardo Díaz Cabrejos", 2],
+            mm85: ["Mirian Vidaurre Zavala", 1],
+            kk86: ["Kenka Vidaurre Zavala ", 1],
+            cc87: ["Cesar Vidaurre Zavala ", 2],
+            aa88: ["Antero Vidaurre Zavala ", 2],
+            gg89: ["Juan Bartolomé Pérez Rojas y Esposa", 2],
+            tt90: ["Teresa Pizarro Vidaurre", 2],
+            aa91: ["Ántony Vidaurre Landa", 2],
+            pp92: ["Pablo Vidaurre", 2],
+            dd93: ["David Díaz Vasquez y familia", 5],
+            kk94: ["Karina Laban Estela", 1],
+            mm95: ["Mirtha Ortiz Salazar y Esposo", 2],
+            ss96: ["Ronaldo Salazar y Esposa", 2],
+            rr97: ["Ronal Vera y Esposa", 2],
+            mm98: ["Melissa Otoya", 2],
+            hh99: ["Hortencia Jacinta Vizurraga Rodenas", 2],
+            qq100: ["Jorge Chapoñan y Familia", 4],
+            kk101: ["Katy Landa Vizurraga", 2],
+            jj102: ["Jhonatan Venegas y Esposa", 2],
+            rr103: ["Rodolfo Morales Yarlaque y Esposa", 2],
+            dd104: ["Daysi Liliana Salazar Pacheco", 2],
+            gg105: ["Gloria Flores Cubas", 2],
+            jj106: ["Jessica Mariella Castillo Valiente", 2],
+            jj107: ["Jorge Carmona y Familia", 4],
+            ll108: ["Luis Junior De La Torre Cespedes y Esposa", 2],
+            aa109: ["Adolfo Inoquio y Esposa", 2],
+            aa110: ["Ana Lucia Riojas", 2],
+            mm111: ["Manuel Pizarro Vidaurre", 2],
+            hh112: ["Harumi Teruya Ivett", 2],
+            ee113: ["Erick Cruzalegui Salazar", 2],
+            cc114: ["Consuelo Perez Flores", 2],
+            ss114: ["Sefora Pérez Terrones", 2],
+            ss115: ["Edwar Cachay Díaz y Esposa", 2],
+            aa116: ["Aurazo Chuque David", 2],
+            rr117: ["Ronald Daniel Urbina Gomez", 2],
+            yy118: ["Yanina Flores", 2],
+            jj120: ["Juan Cumpa Gonzales y Esposa", 2],
+            ff122: ["Francisco Armas y Esposa", 2],
+            ff123: ["Francesa Rojas Rojas y Esposo", 2],
+            hh124: ["Hector Oblitas Espiniza y Esposa", 2],
+            yy125: ["Ysabel Córdova Figueroa", 2],
+            jj126: ["José Antonio Araujo Caycho y Esposa", 3],
+            jj127: ["Jessica Gozzer y Esposo", 2],
+            aa128: ["Anjhely Del Milagro Velázquez Bustamante", 2],
+
             // Puedes añadir hasta 100 o más invitados aquí conservando la estructura.
         };
 
@@ -1063,9 +1173,9 @@
             let message = "";
 
             if (attendance === "SI") {
-                message = `¡Hola Alejandro y Miluska! 🥂\n\nConfirmo con mucha alegría que estaré presente en el día de su boda en Pimentel y Boro el 8 de Agosto. ❤️\n\n*Detalles de Confirmación:*\n• *Nombre:* ${name}\n• *Pases:* ${passes}\n\n¡Qué emoción acompañarlos en este gran momento! Nos vemos pronto. ✨🌅`;
+                message = `¡Hola Alejandro y Miluska! \n\nConfirmo con mucha alegría que estaré presente en el día de su boda en Pimentel y Boro el 8 de Agosto. \n\n*Detalles de Confirmación:*\n• *Nombre:* ${name}\n• *Pases:* ${passes}\n\n¡Qué emoción acompañarlos en este gran momento! Nos vemos pronto.`;
             } else {
-                message = `¡Hola Alejandro y Miluska! 💫\n\nMuchas gracias por la invitación al día más importante de sus vidas. Lamentablemente, no podré acompañarlos físicamente en esta ocasión.\n\n• *Nombre:* ${name}\n\n¡Les envío un gran abrazo y mis mejores deseos para su nueva vida juntos! Los quiero mucho. 💕`;
+                message = `¡Hola Alejandro y Miluska! \n\nMuchas gracias por la invitación al día más importante de sus vidas. Lamentablemente, no podré acompañarlos físicamente en esta ocasión.\n\n• *Nombre:* ${name}\n\n¡Les envío un gran abrazo y mis mejores deseos para su nueva vida juntos! Los quiero mucho.`;
             }
 
             const encodedText = encodeURIComponent(message);
@@ -1113,7 +1223,7 @@
             document.getElementById('name').value = finalGuestName;
 
             // 2. Control Dinámico de Pases
-            let maxPasses = 2; // Cantidad por defecto
+            let maxPasses = passesDefault; // Cantidad por defecto
             if (passesParam) {
                 const parsedPasses = parseInt(passesParam, 10);
                 if (!isNaN(parsedPasses) && parsedPasses >= 1) {
@@ -1167,6 +1277,8 @@
                 const name = GUEST_MAP[id][0];
                 const passes = GUEST_MAP[id][1];
 
+                console.log(`Procesando invitado: ID=${id}, Nombre=${name}, Pases=${passes}`);
+
                 // Generar filas
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-brown-50/70 transition-colors";
@@ -1179,11 +1291,11 @@
                                class="w-12 px-2 py-1 border border-brown-200 rounded text-center outline-none focus:ring-1 focus:ring-brown-600">
                     </td>
                     <td class="p-3 text-right space-x-2">
-                        <button onclick="copyGeneratedLink(${id}, '${currentUrlBase}')" 
+                        <button onclick="copyGeneratedLink('${id}', '${currentUrlBase}')" 
                                 class="bg-brown-100 hover:bg-brown-200 text-brown-800 text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg transition-colors">
                             <i class="fa-solid fa-copy mr-1"></i> Link
                         </button>
-                        <button onclick="copyAdminWhatsAppMessage(${id}, '${name}', '${currentUrlBase}')" 
+                        <button onclick="copyAdminWhatsAppMessage('${id}', '${name}', '${currentUrlBase}')" 
                                 class="bg-green-600 hover:bg-green-700 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg transition-colors inline-flex items-center gap-1">
                             <i class="fa-brands fa-whatsapp text-xs"></i> WhatsApp
                         </button>
@@ -1195,8 +1307,12 @@
 
         // Copiar URL directa
         function copyGeneratedLink(id, base) {
+            console.log(`Generando enlace para ID: ${id}`);
+            console.log(`Base URL: ${base}`);
             const pValue = document.getElementById(`passes-input-${id}`).value;
+            console.log(`Generando enlace para ID: ${id} con p=${pValue}`);
             const fullLink = `${base}?id=${id}`;
+            console.log(`Enlace generado: ${fullLink}`);
 
             copyTextToClipboard(fullLink, "¡Enlace personalizado copiado!");
         }
