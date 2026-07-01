@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alejandro & Miluska — Nuestra Invitación de Boda</title>
+    
+    <!-- Tailwind CSS para diseño responsivo y fluido -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fuentes de Google: Playfair Display (Elegancia clásica) e Inter (Lectura moderna) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para iconos de alta definición -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        script: ['Great Vibes', 'cursive'],
+                    },
+                    colors: {
+                        brown: {
+                            50: '#FAF6F0',   /* Lino / Crema suave de fondo */
+                            100: '#F4ECE1',  /* Arena cálido */
+                            200: '#E6D7C3',  /* Pergamino */
+                            300: '#C5A880',  /* Ocre atardecer */
+                            400: '#A07855',  /* Dorado tostado */
+                            500: '#8B5A2B',  /* Marrón medio */
+                            600: '#704822',  /* Marrón tierra */
+                            700: '#5C3D21',  /* Chocolate cálido */
+                            800: '#4A311A',  /* Café profundo */
+                            900: '#2E1E14',  /* Marrón sombra */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAF6F0;
+            color: #2E1E14;
+            overflow-x: hidden;
+        }
+
+        /* Simulación de textura de lino tradicional para la tapa */
+        .linen-texture {
+            background-color: #FAF6F0;
+            background-image: radial-gradient(rgba(92, 61, 33, 0.04) 1px, transparent 0),
+                              radial-gradient(rgba(92, 61, 33, 0.04) 1px, transparent 0);
+            background-size: 8px 8px;
+            background-position: 0 0, 4px 4px;
+        }
+
+        /* Textura metálica dorada de la faja */
+        .gold-metallic {
+            background: linear-gradient(135deg, #dfba8c 0%, #f5e4c3 30%, #c4965d 70%, #f4dec1 100%);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 4px 10px rgba(92, 61, 33, 0.15);
+        }
+
+        /* Estilos de perspectiva 3D para la apertura del sobre */
+        .envelope-perspective {
+            perspective: 1200px;
+        }
+
+        .envelope-container {
+            transform-style: preserve-3d;
+            transition: transform 1s ease;
+        }
+
+        /* Flap izquierdo troquelado con bisagra 3D */
+        .lace-flap {
+            transform-origin: left center;
+            transition: transform 2.0s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 25;
+            backface-visibility: hidden;
+        }
+
+        .lace-flap.open {
+            transform: rotateY(-130deg);
+        }
+
+        .lace-flap-right {
+            transform-origin: right center;
+            transition: transform 2.0s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 25;
+            backface-visibility: hidden;
+        }
+
+        .lace-flap-right.open {
+            transform: rotateY(-130deg);
+        }
+
+        /* Faja deslizable */
+        .sliding-band {
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+            z-index: 30;
+        }
+
+        .sliding-band.slide-off {
+            transform: translateX(120%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Animación suave para el carrusel de fotos */
+        @keyframes kenburns {
+            0% { transform: scale(1.0); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1.0); }
+        }
+
+        .ken-burns-active {
+            animation: kenburns 20s infinite ease-in-out;
+        }
+
+        .slide-fade {
+            opacity: 0;
+            transition: opacity 1.8s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide-fade.active {
+            opacity: 1;
+        }
+
+        .glow-button {
+            box-shadow: 0 0 15px rgba(92, 61, 33, 0.2);
+            transition: all 0.3s ease;
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 22px rgba(92, 61, 33, 0.35);
+            transform: translateY(-2px);
+        }
+
+        /* Scrollbar estética */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF6F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A07855;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen">
+
+    <!-- REPRODUCTOR DE AUDIO MP3 -->
+    <audio id="wedding-audio" loop preload="auto">
+        <source src="mp3/leberchwedding.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Notificación flotante de copiado (Toast) -->
+    <div id="toast-notification" class="fixed top-6 left-1/2 transform -translate-x-1/2 bg-brown-900 text-brown-50 px-6 py-3 rounded-full shadow-2xl flex items-center space-x-3 z-[200] opacity-0 pointer-events-none transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-brown-300"></i>
+        <span id="toast-text" class="text-xs tracking-wider uppercase font-medium">¡Enlace listo para WhatsApp!</span>
+    </div>
+
+    <!-- CARÁTULA DE SOBRE VIRTUAL INTERACTIVO 3D -->
+    <div id="welcome-overlay" class="fixed inset-0 z-[100] flex items-center justify-center p-4 transition-all duration-1000 ease-in-out bg-gradient-to-tr from-brown-950 via-brown-900 to-brown-950">
+        
+        <!-- Contenedor del sobre con perspectiva 3D -->
+        <div class="relative w-full max-w-[360px] h-[75vh] max-h-[560px] envelope-perspective cursor-pointer" onclick="openEnvelope()">
+            
+            <!-- Cuerpo Principal/Sobre del Matrimonio -->
+            <div id="main-envelope" class="relative w-full h-full rounded-2xl overflow-visible shadow-[0_25px_60px_rgba(0,0,0,0.55)] border border-white/5 flex flex-col justify-between linen-texture">
+                
+                <!-- 1. Flap de encaje izquierdo (Lado troquelado por láser) -->
+                <div id="envelope-flap" class="lace-flap absolute inset-y-0 left-0 w-1/2 h-full bg-brown-50 rounded-l-2xl shadow-[2px_0_15px_rgba(0,0,0,0.12)] border-r border-brown-200/50 overflow-hidden flex items-center justify-end">
+                    <div class="absolute inset-0 linen-texture opacity-70"></div>
+                    <svg class="absolute inset-y-0 right-0 w-full h-full text-brown-200 pointer-events-none" viewBox="0 0 100 200" fill="none" preserveAspectRatio="none">
+                        <path d="M100,0 C80,20 60,10 60,35 C60,50 85,60 85,75 C85,90 65,95 65,110 C65,125 90,135 90,150 C90,165 75,175 75,185 C75,190 90,195 100,200 Z" fill="#FAF6F0"/>
+                        <circle cx="85" cy="35" r="4" fill="#E6D7C3"/>
+                        <circle cx="75" cy="110" r="5" fill="#E6D7C3"/>
+                        <circle cx="85" cy="150" r="4" fill="#E6D7C3"/>
+                        <path d="M100,25 C90,30 85,45 100,50 M100,100 C80,105 85,120 100,125 M100,165 C90,170 85,180 100,185" stroke="#C5A880" stroke-width="0.7" stroke-dasharray="2,2"/>
+                    </svg>
+                </div>
+
+                <div id="envelope-flap-right" class="lace-flap-right absolute inset-y-0 right-0 w-1/2 h-full bg-brown-50 rounded-r-2xl shadow-[-2px_0_15px_rgba(0,0,0,0.12)] border-l border-brown-200/50 overflow-hidden flex items-center justify-start">
+                    <div class="absolute inset-0 linen-texture opacity-70"></div>
+                    <svg class="absolute inset-y-0 left-0 w-full h-full text-brown-200 pointer-events-none" viewBox="0 0 100 200" fill="none" preserveAspectRatio="none" style="transform: scaleX(-1);">
+                        <path d="M100,0 C80,20 60,10 60,35 C60,50 85,60 85,75 C85,90 65,95 65,110 C65,125 90,135 90,150 C90,165 75,175 75,185 C75,190 90,195 100,200 Z" fill="#FAF6F0"/>
+                        <circle cx="85" cy="35" r="4" fill="#E6D7C3"/>
+                        <circle cx="75" cy="110" r="5" fill="#E6D7C3"/>
+                        <circle cx="85" cy="150" r="4" fill="#E6D7C3"/>
+                        <path d="M100,25 C90,30 85,45 100,50 M100,100 C80,105 85,120 100,125 M100,165 C90,170 85,180 100,185" stroke="#C5A880" stroke-width="0.7" stroke-dasharray="2,2"/>
+                    </svg>
+                </div>
+
+                <!-- 2. Tarjeta de Invitación de fondo (Se revela al abrirse el sobre y contiene el nombre del invitado específico) -->
+                <div class="absolute inset-0 w-full h-full bg-white rounded-2xl flex flex-col justify-between p-8 text-center z-10 select-none">
+                    <div class="absolute inset-2 border border-brown-200/40 rounded-xl pointer-events-none"></div>
+                    
+                    <!-- Encabezado de la invitación -->
+                    <div class="space-y-1 mt-4">
+                        <span class="text-[9px] uppercase tracking-[0.25em] text-brown-400 font-semibold block">Invitación de Boda</span>
+                        <h2 class="font-script text-4xl text-brown-700 leading-none">Alejandro y Miluska</h2>
+                        <div class="w-10 h-[1px] bg-brown-300 my-2.5 mx-auto"></div>
+                    </div>
+
+                    <!-- NOMBRE DINÁMICO DEL INVITADO (Donde se lee el parámetro del ID) -->
+                    <div class="my-auto py-2">
+                        <p class="text-[8.5px] uppercase tracking-[0.2em] text-brown-400 font-semibold italic">Tenemos el honor de invitar a:</p>
+                        <p id="guest-card-name" class="font-serif text-lg md:text-xl font-bold text-brown-800 tracking-wide mt-2.5 italic px-2 leading-tight">Invitado Especial</p>
+                    </div>
+
+                    <!-- Datos base de pie -->
+                    <div class="space-y-1 mb-4">
+                        <p class="text-[10px] uppercase tracking-widest text-brown-600 font-bold">8 de Agosto de 2026</p>
+                        <p class="text-[9px] text-brown-500 italic">Pimentel & Boro</p>
+                    </div>
+                </div>
+
+                <!-- 3. Faja Dorada Deslizable con el Monograma y Saludo de Bienvenida General (La primera capa exterior) -->
+                <div id="envelope-band" class="sliding-band absolute inset-x-0 top-1/2 -translate-y-1/2 h-36 gold-metallic flex items-center justify-center">
+                    
+                    <!-- Tarjeta Monograma Central (Faja exterior de primer impacto) -->
+                    <div class="bg-white px-5 py-4 rounded-md shadow-lg border border-amber-200/40 text-center max-w-[240px] w-full relative z-40">
+                        <div class="absolute inset-1 border border-brown-300/40 rounded"></div>
+                        <h3 class="font-script text-3xl text-brown-800 leading-none tracking-normal font-semibold">A & M</h3>
+                        <p class="text-[7px] uppercase tracking-[0.2em] text-brown-500 mt-1 font-semibold mb-2.5">8 de Agosto de 2026</p>
+                        
+                        <!-- Texto general de invitación para todos en la portada exterior -->
+                        <div class="border-t border-brown-100 pt-2.5">
+                            <p class="text-[10px] tracking-[0.1em] text-brown-700 font-medium italic">Tenemos una hermosa invitación para ti</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Instrucción de apertura al pie del sobre -->
+                <div id="button-open-envelope" class="absolute bottom-5 inset-x-0 z-30 text-center pointer-events-none">
+                    <span class="text-[10px] uppercase tracking-[0.25em] text-white/95 bg-black/40 px-4 py-2 rounded-full backdrop-blur-sm animate-pulse">
+                        <i class="fa-solid fa-envelope mr-1.5 text-[9px]"></i> Toca para abrir
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- PANEL ADMIN SECRETO: GENERADOR DE INVITACIONES (Solo con ?admin=1) -->
+    <!-- ============================================================== -->
+    <div id="admin-panel" class="hidden fixed inset-0 z-[150] bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 md:p-8 max-w-2xl w-full max-h-[85vh] overflow-y-auto border border-brown-200 shadow-2xl relative text-left">
+            <button onclick="closeAdminPanel()" class="absolute top-4 right-4 text-brown-500 hover:text-brown-800 text-xl">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+            <div class="text-center mb-6">
+                <span class="text-brown-500 font-serif italic text-sm block">Panel Privado de Novios</span>
+                <h3 class="font-serif text-2xl text-brown-800 font-medium mt-0.5">Control de Enlaces Nupciales</h3>
+                <p class="text-brown-500 text-[10px] uppercase tracking-wider mt-1">Copia y envía mensajes personalizados en 1 segundo</p>
+            </div>
+            
+            <!-- Listado Automatizado de Invitados -->
+            <div class="space-y-4">
+                <div class="bg-brown-50/50 p-4 rounded-2xl border border-brown-200">
+                    <h4 class="text-xs font-bold text-brown-800 uppercase tracking-wider mb-2">Instrucciones de Uso:</h4>
+                    <p class="text-[11px] text-brown-700 leading-relaxed">
+                        Abajo verás la lista de invitados que definiste en el código. Al hacer clic en <strong>"Copiar WhatsApp"</strong>, el sistema copiará automáticamente al portapapeles el texto del saludo cordial listo para pegar en el chat de tu invitado.
+                    </p>
+                </div>
+                
+                <!-- Tabla de Invitados -->
+                <div class="border border-brown-200 rounded-xl overflow-hidden">
+                    <table class="w-full text-xs text-left">
+                        <thead class="bg-brown-100 text-brown-800 uppercase tracking-wider text-[9px]">
+                            <tr>
+                                <th class="p-3">ID</th>
+                                <th class="p-3">Invitado</th>
+                                <th class="p-3 text-center">Pases Sugeridos</th>
+                                <th class="p-3 text-right">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-guest-table-body" class="divide-y divide-brown-100">
+                            <!-- Se rellena dinámicamente mediante JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón Flotante de Audio -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button id="btn-music" onclick="toggleMusic()" class="bg-brown-700 text-brown-50 w-12 h-12 rounded-full flex items-center justify-center shadow-lg glow-button" title="Música de ambiente">
+            <i id="music-icon" class="fa-solid fa-music text-sm"></i>
+        </button>
+    </div>
+
+    <!-- HERO PRINCIPAL (Portada con carrusel) -->
+    <header class="relative h-screen w-full overflow-hidden flex items-center justify-center text-center z-30">
+        <div class="absolute inset-0 bg-gradient-to-b from-brown-900/60 via-brown-900/40 to-brown-50/10 z-10"></div>
+        
+        <!-- Carrusel de fotos románticas de fondo -->
+        <div class="absolute inset-0 w-full h-full">
+            <div class="slide-fade active w-full h-full">
+                <div class="w-full h-full bg-cover bg-center ken-burns-active" style="background-image: url('img/nosotros0.jpeg?auto=format&fit=crop&q=80&w=1200');"></div>
+            </div>
+            <div class="slide-fade w-full h-full">
+                <div class="w-full h-full bg-cover bg-center" style="background-image: url('img/nosotros1.png?auto=format&fit=crop&q=80&w=1200');"></div>
+            </div>
+            <div class="slide-fade w-full h-full">
+                <div class="w-full h-full bg-cover bg-center" style="background-image: url('img/nosotros3.jpeg?auto=format&fit=crop&q=80&w=1200');"></div>
+            </div>
+        </div>
+
+        <!-- Títulos de Portada -->
+        <div class="relative z-20 px-6 max-w-4xl text-brown-50 mt-[-4vh]">
+            <p class="uppercase tracking-[0.3em] text-xs font-semibold mb-5 text-brown-200">¡Nos Casamos!</p>
+            
+            <h1 class="font-serif text-5xl md:text-8xl font-light tracking-wide leading-tight">
+                Alejandro <span class="font-script text-4xl md:text-7xl text-brown-300">&</span> Miluska
+            </h1>
+            
+            <div class="flex items-center justify-center space-x-3 my-6">
+                <div class="w-8 h-[1px] bg-brown-200/50"></div>
+                <i class="fa-regular fa-sun text-brown-300 text-base"></i>
+                <div class="w-8 h-[1px] bg-brown-200/50"></div>
+            </div>
+
+            <p class="font-serif text-lg md:text-2xl italic tracking-wider text-brown-100 mb-8">
+                Pimentel & Boro · Lambayeque
+            </p>
+
+            <a href="#detalles" class="inline-flex items-center space-x-2 bg-brown-900/30 backdrop-blur-md hover:bg-brown-700 transition-all duration-300 px-5 py-2.5 rounded-full border border-brown-200/30 text-[10px] uppercase tracking-widest text-brown-50 font-semibold">
+                <span>Descubrir Detalles</span>
+                <i class="fa-solid fa-arrow-down animate-bounce ml-1"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- SECCIÓN CONTADOR REGRESIVO -->
+    <section id="detalles" class="py-12 px-4 bg-brown-50 text-center relative z-20 mt-[-10vh] rounded-t-[40px] shadow-inner">
+        <div class="max-w-4xl mx-auto bg-white/70 backdrop-blur-md rounded-[30px] p-6 md:p-10 shadow-lg border border-brown-200/30 relative">
+            <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-brown-700 text-brown-50 px-5 py-1.5 rounded-full text-[10px] font-semibold uppercase tracking-widest shadow-md">
+                Guarda la Fecha
+            </div>
+
+            <h3 class="font-serif text-2xl md:text-3xl text-brown-800 font-light mb-1 mt-3">8 de Agosto de 2026</h3>
+            <p class="text-brown-500 text-[10px] uppercase tracking-[0.2em] font-semibold mb-6">Cada segundo nos acerca más</p>
+
+            <!-- Grid de tiempo -->
+            <div class="grid grid-cols-4 gap-3 max-w-sm mx-auto">
+                <div class="bg-brown-100/40 py-3 px-2 rounded-xl border border-brown-200/40">
+                    <span id="countdown-days" class="font-serif text-2xl md:text-3xl font-semibold text-brown-700 block">00</span>
+                    <span class="text-[9px] uppercase tracking-wider text-brown-800/80">Días</span>
+                </div>
+                <div class="bg-brown-100/40 py-3 px-2 rounded-xl border border-brown-200/40">
+                    <span id="countdown-hours" class="font-serif text-2xl md:text-3xl font-semibold text-brown-700 block">00</span>
+                    <span class="text-[9px] uppercase tracking-wider text-brown-800/80">Horas</span>
+                </div>
+                <div class="bg-brown-100/40 py-3 px-2 rounded-xl border border-brown-200/40">
+                    <span id="countdown-minutes" class="font-serif text-2xl md:text-3xl font-semibold text-brown-700 block">00</span>
+                    <span class="text-[9px] uppercase tracking-wider text-brown-800/80">Minutos</span>
+                </div>
+                <div class="bg-brown-100/40 py-3 px-2 rounded-xl border border-brown-200/40">
+                    <span id="countdown-seconds" class="font-serif text-2xl md:text-3xl font-semibold text-brown-700 block">00</span>
+                    <span class="text-[9px] uppercase tracking-wider text-brown-800/80">Segundos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- FONDO FIJO PANORÁMICO DE PRADO AL ATARDECER -->
+    <!-- ========================================== -->
+    <!-- Este contenedor permanece estático tras el scroll. Se ajusta y escala de manera 100% nativa en teléfonos móviles sin deformarse ni estirarse. -->
+    <div class="fixed inset-0 w-full h-full -z-10 pointer-events-none">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1600" 
+             alt="Fondo Prado Atardecer" 
+             class="w-full h-full object-cover object-[center_bottom_25%] md:bg-center select-none">
+        <!-- Capa de atenuación cálida para amalgamar la tipografía -->
+        <div class="absolute inset-0 bg-brown-950/40 backdrop-blur-[1px]"></div>
+    </div>
+
+    <!-- WRAPPER DE CONTENIDO FLOTANTE (Transparente para revelar el fondo fijo impecable) -->
+    <div class="relative z-10 w-full bg-transparent">
+
+        <!-- SECCIÓN PADRES Y PADRINOS -->
+        <section class="py-16 px-4 relative z-10">
+            <div class="max-w-3xl mx-auto bg-white/95 rounded-[35px] p-8 md:p-14 shadow-2xl border border-brown-200/60 text-center relative z-10 linen-texture">
+                
+                <!-- Encabezado -->
+                <div class="space-y-3 mb-10">
+                    <h3 class="font-serif text-xl md:text-2xl italic text-brown-600 font-light">Con la bendición de Dios</h3>
+                    <h4 class="font-serif text-lg md:text-xl text-brown-500 font-light mt-0.5">y nuestros amados padres</h4>
+                    <div class="w-16 h-[1px] bg-brown-300 mx-auto mt-3"></div>
+                </div>
+
+                <!-- Grilla de los Padres -->
+                <div class="grid md:grid-cols-2 gap-8 md:gap-12 mb-12">
+                    <!-- Novio -->
+                    <div class="space-y-1">
+                        <span class="text-[9px] uppercase tracking-widest text-brown-400 font-bold block">Padres del Novio</span>
+                        <p class="font-serif text-base text-brown-800 font-medium">Celia Isabel Quintana Cobeñas</p>
+                        <p class="font-serif text-base text-brown-800 font-medium">Carlos Julio Aldana Ramirez</p>
+                    </div>
+                    <!-- Novia -->
+                    <div class="space-y-1">
+                        <span class="text-[9px] uppercase tracking-widest text-brown-400 font-bold block">Padres de la Novia</span>
+                        <p class="font-serif text-base text-brown-800 font-medium">María Magdalena Díaz Cabrejos</p>
+                        <p class="font-serif text-base text-brown-800 font-medium">Marco Antonio Vidaurre Zavala</p>
+                    </div>
+                </div>
+
+                <!-- Separador -->
+                <div class="flex items-center justify-center space-x-2.5 mb-8">
+                    <div class="w-10 h-[1px] bg-brown-200"></div>
+                    <i class="fa-solid fa-heart text-brown-400 text-[10px]"></i>
+                    <div class="w-10 h-[1px] bg-brown-200"></div>
+                </div>
+
+                <!-- Sección de Padrinos -->
+                <div class="space-y-6">
+                    <h3 class="font-serif text-xl md:text-2xl italic text-brown-600 font-light">Nuestros padrinos</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                        <!-- Civil -->
+                        <div class="space-y-1">
+                            <span class="text-[9px] uppercase tracking-widest text-brown-400 font-bold block">De Matrimonio Civil</span>
+                            <p class="font-serif text-base text-brown-800 font-medium">Claudia Vanessa Vidaurre Díaz</p>
+                            <p class="font-serif text-base text-brown-800 font-medium">Fernando Torres Cornejo</p>
+                        </div>
+                        <!-- Religioso -->
+                        <div class="space-y-1">
+                            <span class="text-[9px] uppercase tracking-widest text-brown-400 font-bold block">De Matrimonio Religioso</span>
+                            <p class="font-serif text-base text-brown-800 font-medium">Marcia Ximena Aldana Pintado</p>
+                            <p class="font-serif text-base text-brown-800 font-medium">Carlos Martin Rodriguez Nuñez</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Separador -->
+                 <br>
+                 <br>
+                <div class="flex items-center justify-center space-x-2.5 mb-8">
+                    <div class="w-10 h-[1px] bg-brown-200"></div>
+                    <i class="fa-solid fa-heart text-brown-400 text-[10px]"></i>
+                    <div class="w-10 h-[1px] bg-brown-200"></div>
+                </div>
+
+                <!-- Sección de Testigos -->
+                <div class="space-y-6">
+                    <h3 class="font-serif text-xl md:text-2xl italic text-brown-600 font-light">Nuestros Testigos</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+
+                        <div class="space-y-1">
+                            <p class="font-serif text-base text-brown-800 font-medium">Marcia Ximena Aldana Pintado</p>
+                            <p class="font-serif text-base text-brown-800 font-medium">Carlos Martin Rodriguez Nuñez</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- NUESTRA HISTORIA -->
+        <section class="py-20 px-4 relative z-10">
+            <div class="max-w-5xl mx-auto bg-white/95 rounded-[35px] p-6 md:p-12 shadow-xl border border-brown-200/40 grid md:grid-cols-12 gap-8 items-center">
+                
+                <!-- Columna de la Imagen (Optimizada para móviles a un ancho refinado) -->
+                <div class="md:col-span-5 relative max-w-[240px] sm:max-w-[280px] md:max-w-none mx-auto w-full">
+                    <div class="border-4 border-brown-50 shadow-lg bg-brown-100 aspect-[3/4] rounded-t-[180px] overflow-hidden">
+                        <img src="img/nosotros4.jpeg?auto=format&fit=crop&q=80&w=600" alt="Alejandro y Miluska" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-3 -right-3 w-full h-full bg-brown-300/25 rounded-t-[180px] -z-10"></div>
+                </div>
+
+                <div class="md:col-span-7 space-y-4 text-center md:text-left">
+                    <span class="text-brown-500 font-serif italic text-xl">Nuestra Historia</span>
+                    <h2 class="font-serif text-3xl md:text-4xl text-brown-800 font-light leading-snug">Dos corazones, un mismo latido</h2>
+                    <div class="w-12 h-[1px] bg-brown-300 mx-auto md:mx-0 my-3"></div>
+                    
+                    <p class="text-brown-900/95 leading-relaxed text-sm font-light">
+                        Dicen que la verdadera magia ocurre cuando se encuentra el balance. Para nosotros, la vida se volvió más bella cuando el espíritu reflexivo, formal y analítico de <strong class="font-semibold text-brown-700">Alejandro</strong> se entrelazó con la alegría espontánea, chispeante, extrovertida y emprendedora de <strong class="font-semibold text-brown-700">Miluska</strong>.
+                    </p>
+                    <p class="text-brown-900/95 leading-relaxed text-sm font-light">
+                        El resultado es nuestra complicidad perfecta: Alejandro encuentra en Miluska una risa sincera y eterna, y Miluska encuentra en él su refugio más firme. Hoy, rodeados de quienes más amamos, celebramos este maravilloso equilibrio de amor real.
+                    </p>
+                    <p class="font-serif text-base italic text-brown-500 mt-4">
+                        "Unidos por el destino, inspirados por el mar de Pimentel y el aire fresco de Boro."
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ITINERARIO -->
+        <section class="py-20 relative z-10">
+            <div class="max-w-4xl mx-auto px-4">
+                
+                <div class="bg-white/95 rounded-[35px] p-6 md:p-12 shadow-xl border border-brown-200/40">
+                    <div class="text-center mb-12">
+                        <span class="text-brown-500 text-lg font-serif italic block">El Itinerario</span>
+                        <h2 class="font-serif text-3xl md:text-4xl text-brown-800 font-light mt-1">La Boda Paso a Paso</h2>
+                        <div class="w-10 h-[1px] bg-brown-300 mx-auto mt-3"></div>
+                    </div>
+
+                    <!-- Timeline -->
+                    <div class="relative border-l border-brown-700/20 ml-3 md:ml-0 md:border-l-0 md:flex md:flex-col items-center">
+                        <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-brown-700/20"></div>
+
+                        <!-- 12:00 PM -->
+                        <div class="relative md:w-full md:grid md:grid-cols-2 md:gap-8 mb-12 items-center">
+                            <span class="absolute -left-[21px] md:left-1/2 md:transform md:-translate-x-1/2 bg-brown-50 border border-brown-600 text-brown-700 w-10 h-10 rounded-full flex items-center justify-center z-20 font-serif shadow-sm text-xs font-semibold">
+                                12
+                            </span>
+                            <div class="pl-6 md:pl-0 md:text-right md:pr-10 md:col-start-1">
+                                <span class="text-brown-600 font-serif text-lg font-semibold">12:00 PM</span>
+                                <h3 class="font-serif text-xl text-brown-800 font-light mt-0.5">Matrimonio Religioso</h3>
+                                <p class="text-brown-800/90 text-xs leading-relaxed max-w-sm md:ml-auto">
+                                    Consagramos nuestro amor ante Dios en el hermoso balneario de Pimentel, rodeados por una fresca brisa.
+                                </p>
+                                <span class="inline-block mt-2 bg-brown-100/50 text-brown-700 text-[10px] uppercase tracking-wider font-semibold px-3 py-1 rounded-full border border-brown-200">
+                                    Parroquia Nuestra Señora del Carmen
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 01:30 PM -->
+                        <div class="relative md:w-full md:grid md:grid-cols-2 md:gap-8 mb-12 items-center">
+                            <span class="absolute -left-[21px] md:left-1/2 md:transform md:-translate-x-1/2 bg-brown-50 border border-brown-600 text-brown-700 w-10 h-10 rounded-full flex items-center justify-center z-20 font-serif shadow-sm text-xs font-semibold">
+                                1
+                            </span>
+                            <div class="pl-6 md:pl-0 md:text-right md:pr-10 md:col-start-1">
+                                <span class="text-brown-600 font-serif text-lg font-semibold">01:30 PM</span>
+                                <h3 class="font-serif text-xl text-brown-800 font-light mt-0.5">Partida a Boro</h3>
+                                <p class="text-brown-800/90 text-xs leading-relaxed max-w-sm md:ml-auto">
+                                    Nos trasladamos a los verdes campos de Boro, se contará con un bus acondicionado para la ocasión.
+                                </p>
+                                <span class="inline-block mt-2 bg-brown-100/50 text-brown-700 text-[10px] uppercase tracking-wider font-semibold px-3 py-1 rounded-full border border-brown-200">
+                                    Parroquia Nuestra Señora del Carmen
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 02:00 PM -->
+                        <div class="relative md:w-full md:grid md:grid-cols-2 md:gap-8 mb-12 items-center">
+                            <span class="absolute -left-[21px] md:left-1/2 md:transform md:-translate-x-1/2 bg-brown-50 border border-brown-600 text-brown-700 w-10 h-10 rounded-full flex items-center justify-center z-20 font-serif shadow-sm text-xs font-semibold">
+                                02
+                            </span>
+                            <div class="pl-6 md:pl-10 md:col-start-2">
+                                <span class="text-brown-600 font-serif text-lg font-semibold">02:00 PM</span>
+                                <h3 class="font-serif text-xl text-brown-800 font-light mt-0.5">Llegada a Boro</h3>
+                                <p class="text-brown-800/90 text-xs leading-relaxed max-w-sm">
+                                    Llegamos a los verdes campos de Boro, donde tendremos una bienvenida con la música de nuestra orquesta digital, que tocará desde las 2:00 PM.
+                                </p>
+                                <span class="inline-block mt-2 bg-brown-100/50 text-brown-700 text-[10px] uppercase tracking-wider font-semibold px-3 py-1 rounded-full border border-brown-200">
+                                    Estancia Campestre · Boro
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 02:30 PM -->
+                        <div class="relative md:w-full md:grid md:grid-cols-2 md:gap-8 mb-12 items-center">
+                            <span class="absolute -left-[21px] md:left-1/2 md:transform md:-translate-x-1/2 bg-brown-50 border border-brown-600 text-brown-700 w-10 h-10 rounded-full flex items-center justify-center z-20 font-serif shadow-sm text-xs font-semibold">
+                                2:3
+                            </span>
+                            <div class="pl-6 md:pl-0 md:text-right md:pr-10 md:col-start-1">
+                                <span class="text-brown-600 font-serif text-lg font-semibold">02:30 PM</span>
+                                <h3 class="font-serif text-xl text-brown-800 font-light mt-0.5">Almuerzo Campestre</h3>
+                                <p class="text-brown-800/90 text-xs leading-relaxed max-w-sm md:ml-auto">
+                                    Compartiremos un almuerzo especial en honor a nuestra unión. Un almuerzo campestre tradicional rodeado de risas, amor e historias memorables.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 07:00 PM -->
+                        <div class="relative md:w-full md:grid md:grid-cols-2 md:gap-8 mb-12 items-center">
+                            <span class="absolute -left-[21px] md:left-1/2 md:transform md:-translate-x-1/2 bg-brown-50 border border-brown-600 text-brown-700 w-10 h-10 rounded-full flex items-center justify-center z-20 font-serif shadow-sm text-xs font-semibold">
+                                07
+                            </span>
+                            <div class="pl-6 md:pl-10 md:col-start-2">
+                                <span class="text-brown-600 font-serif text-lg font-semibold">07:20 PM</span>
+                                <h3 class="font-serif text-xl text-brown-800 font-light mt-0.5">Sonido DJ</h3>
+                                <p class="text-brown-800/90 text-xs leading-relaxed max-w-sm">
+                                    La noche continua con el sonido musical y la pista de baile.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 02:00 AM -->
+                        <div class="relative md:w-full md:grid md:grid-cols-2 md:gap-8 items-center">
+                            <span class="absolute -left-[21px] md:left-1/2 md:transform md:-translate-x-1/2 bg-brown-50 border border-brown-600 text-brown-700 w-10 h-10 rounded-full flex items-center justify-center z-20 font-serif shadow-sm text-xs font-semibold">
+                                02
+                            </span>
+                            <div class="pl-6 md:pl-0 md:text-right md:pr-10 md:col-start-1">
+                                <span class="text-brown-600 font-serif text-lg font-semibold">02:00 AM</span>
+                                <h3 class="font-serif text-xl text-brown-800 font-light mt-0.5">Fin de la Celebración</h3>
+                                <p class="text-brown-800/90 text-xs leading-relaxed max-w-sm md:ml-auto">
+                                    Agradecemos de todo corazón que nos acompañen a vivir y recordar esta gran noche por el resto de nuestras vidas.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- UBICACIONES EXACTAS (GPS) -->
+        <section class="py-12 relative z-10">
+            <div class="max-w-4xl mx-auto px-4">
+                
+                <div class="bg-white/95 rounded-[35px] p-6 md:p-12 shadow-xl border border-brown-200/40">
+                    <div class="text-center mb-10">
+                        <span class="text-brown-500 text-lg font-serif italic block">¿Cómo llegar?</span>
+                        <h2 class="font-serif text-3xl md:text-4xl text-brown-800 font-light mt-1">Los Escenarios</h2>
+                        <div class="w-10 h-[1px] bg-brown-300 mx-auto mt-3"></div>
+                    </div>
+
+                    <!-- Grilla -->
+                    <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                        
+                        <!-- Pimentel -->
+                        <div class="bg-brown-50/70 rounded-2xl p-6 border border-brown-200/60 flex flex-col justify-between hover:shadow-md transition-shadow">
+                            <div>
+                                <div class="bg-brown-200/40 text-brown-700 w-10 h-10 rounded-xl flex items-center justify-center mb-4">
+                                    <i class="fa-solid fa-church text-base"></i>
+                                </div>
+                                <h3 class="font-serif text-xl text-brown-800 font-light mb-1">Matrimonio Religioso</h3>
+                                <p class="text-brown-500 text-[10px] uppercase tracking-wider font-semibold mb-3">12:00 PM · Pimentel</p>
+                                <p class="text-brown-700 text-xs mb-5 leading-relaxed">
+                                    Parroquia Nuestra Señora del Carmen, Calle José Quiñones y Pje. Campos, Balneario de Pimentel, Lambayeque.
+                                </p>
+                            </div>
+                            
+                            <div class="space-y-2 border-t border-brown-200 pt-4">
+                                <p class="text-[10px] text-brown-600/80 text-center italic mb-2">Abrir ubicación exacta en GPS:</p>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=-6.835676852860911,-79.93740884662722" target="_blank" class="flex items-center justify-center bg-white hover:bg-brown-700 hover:text-white text-brown-800 border border-brown-200 transition-all py-2.5 rounded-lg text-[10px] font-semibold uppercase tracking-wider shadow-sm">
+                                        <i class="fa-solid fa-map-location-dot mr-1.5"></i> Google Maps
+                                    </a>
+                                    <a href="https://waze.com/ul?ll=-6.835676852860911,-79.93740884662722&navigate=yes" target="_blank" class="flex items-center justify-center bg-white hover:bg-brown-700 hover:text-white text-brown-800 border border-brown-200 transition-all py-2.5 rounded-lg text-[10px] font-semibold uppercase tracking-wider shadow-sm">
+                                        <i class="fa-brands fa-waze mr-1.5"></i> Waze
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Boro -->
+                        <div class="bg-brown-50/70 rounded-2xl p-6 border border-brown-200/60 flex flex-col justify-between hover:shadow-md transition-shadow">
+                            <div>
+                                <div class="bg-brown-200/40 text-brown-700 w-10 h-10 rounded-xl flex items-center justify-center mb-4">
+                                    <i class="fa-solid fa-champagne-glasses text-base"></i>
+                                </div>
+                                <h3 class="font-serif text-xl text-brown-800 font-light mb-1">Recepción y Fiesta</h3>
+                                <p class="text-brown-500 text-[10px] uppercase tracking-wider font-semibold mb-3">02:00 PM a 02:00 AM · Boro</p>
+                                <p class="text-brown-700 text-xs mb-5 leading-relaxed">
+                                    Recreo Campestre El Encanto De Boro, Boro - Lambayeque (Ubicado a unos 15 minutos de Chiclayo, 5 min de Pomalca).
+                                </p>
+                            </div>
+                            <div class="space-y-2 border-t border-brown-200 pt-4">
+                                <p class="text-[10px] text-brown-600/80 text-center italic mb-2">Abrir ubicación exacta en GPS:</p>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=-6.794366608054891,-79.73922487530368" target="_blank" class="flex items-center justify-center bg-white hover:bg-brown-700 hover:text-white text-brown-800 border border-brown-200 transition-all py-2.5 rounded-lg text-[10px] font-semibold uppercase tracking-wider shadow-sm">
+                                        <i class="fa-solid fa-map-location-dot mr-1.5"></i> Google Maps
+                                    </a>
+                                    <a href="https://waze.com/ul?ll=-6.794366608054891,-79.73922487530368&navigate=yes" target="_blank" class="flex items-center justify-center bg-white hover:bg-brown-700 hover:text-white text-brown-800 border border-brown-200 transition-all py-2.5 rounded-lg text-[10px] font-semibold uppercase tracking-wider shadow-sm">
+                                        <i class="fa-brands fa-waze mr-1.5"></i> Waze
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DETALLES, PREGUNTAS FRECUENTES & DIRECCIONES -->
+        <section class="py-12 relative z-10">
+            <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+                
+                <!-- Columna Izquierda: Código de Vestimenta y FAQ -->
+                <div class="space-y-8">
+                    
+                    <!-- Tarjeta: Código de Vestimenta -->
+                    <div class="bg-white/95 rounded-[30px] p-6 md:p-8 border border-brown-200 shadow-xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-brown-100/30 rounded-bl-[50px]"></div>
+                        <div class="bg-brown-100/50 text-brown-700 w-12 h-12 rounded-xl flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-user-tie text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-brown-800 font-light mb-1">Código de Vestimenta</h3>
+                        <p class="text-brown-500 font-semibold text-[10px] uppercase tracking-wider mb-3">Traje de Gala</p>
+                        <p class="text-brown-700 text-xs leading-relaxed mb-4">
+                            Queremos celebrar este día especial con elegancia y solemnidad. Agradecemos asistir vistiendo traje formal.
+                        </p>
+                        <div class="bg-amber-50/70 border border-brown-200 rounded-xl p-3 text-[11px] text-brown-900 leading-relaxed italic">
+                            <i class="fa-solid fa-circle-info text-brown-500 mr-1"></i>
+                            <strong>Sugerencias:</strong> La recepción se llevará a cabo en una estancia campestre con césped natural y al aire libre. Te aconsejamos elegir un calzado que te brinde estabilidad (evitar tacones de aguja muy delgados) y llevar abrigo.
+                        </div>
+                        <div class="border-t border-brown-100 pt-4 mt-5 text-[10px] uppercase tracking-widest text-brown-600 font-semibold text-center md:text-left">
+                            Varones: Esmoquin o terno · Damas: Vestido o coctel elegante
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta: Preguntas Frecuentes (FAQ) -->
+                    <div class="bg-white/95 rounded-[30px] p-6 md:p-8 border border-brown-200 shadow-xl">
+                        <div class="bg-brown-100/50 text-brown-700 w-12 h-12 rounded-xl flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-circle-question text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-brown-800 font-light mb-4">Preguntas Frecuentes</h3>
+                        
+                        <div class="space-y-4 text-left">
+                            <div>
+                                <h4 class="text-xs font-semibold text-brown-800 flex items-center">
+                                    <i class="fa-solid fa-children text-brown-500 mr-2"></i> ¿Puedo asistir con niños?
+                                </h4>
+                                <p class="text-[11px] text-brown-600 mt-1 leading-relaxed">
+                                    Hemos planeado una celebración exclusiva para adultos. Agradecemos inmensamente tu comprensión para que disfrutes plenamente de la fiesta.
+                                </p>
+                            </div>
+                            <div class="border-b border-brown-100 pb-3">
+                                <h4 class="text-xs font-semibold text-brown-800 flex items-center">
+                                    <i class="fa-solid fa-square-parking text-brown-500 mr-2"></i> ¿Habrá estacionamiento?
+                                </h4>
+                                <p class="text-[11px] text-brown-600 mt-1 leading-relaxed">
+                                    Sí, la estancia campestre en Boro cuenta con un amplio estacionamiento privado y vigilado de forma permanente para tu total seguridad y tranquilidad.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Columna Derecha: Nuestras Direcciones -->
+                <div class="bg-white/95 rounded-[30px] p-6 md:p-8 border border-brown-200 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="bg-brown-100/50 text-brown-700 w-12 h-12 rounded-xl flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-house-chimney text-xl"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-brown-800 font-light mb-1">Entrega de regalos</h3>
+                        
+                        <p class="text-brown-700 text-xs leading-relaxed mb-6">
+                            Direcciones familiares para coordinar la entrega:
+                        </p>
+
+                        <!-- Direcciones -->
+                        <div class="space-y-3.5">
+                            
+                            <!-- Dirección 1 -->
+                            <div class="bg-brown-50/50 p-3.5 rounded-xl border border-brown-200/70 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                                <div class="text-left">
+                                    <span class="text-[8px] uppercase font-bold text-brown-500 block">Dirección Principal (Pimentel)</span>
+                                    <span class="text-xs font-semibold text-brown-800">Mz M Lt. 25, 2do Piso, Urb. Sol de Pimentel, Galilea, Altura cuartel militar</span>
+                                    <span class="text-[10px] text-brown-600 block mt-0.5"><i class="fa-solid fa-phone text-[8px] mr-1"></i>Contacto: 920 731 163 (Miluska)</span>
+                                </div>
+                                <button onclick="coordinateGift('920731163', 'Mz M Lt. 25, 2do Piso, Urb. Sol de Pimentel, Galilea, Altura cuartel militar')" class="text-[8px] uppercase font-bold tracking-wider text-white bg-brown-600 hover:bg-brown-800 transition-colors px-2.5 py-1.5 rounded-lg shadow-sm flex items-center self-end sm:self-auto">
+                                    <i class="fa-brands fa-whatsapp mr-1 text-xs"></i> Coordinar
+                                </button>
+                            </div>
+
+                            <!-- Dirección 2 -->
+                            <div class="bg-brown-50/50 p-3.5 rounded-xl border border-brown-200/70 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                                <div class="text-left">
+                                    <span class="text-[8px] uppercase font-bold text-brown-500 block">Dirección Alterna (Chiclayo)</span>
+                                    <span class="text-xs font-semibold text-brown-800">Calle Roma Mz D Lt. 76, Urb. 15 de Septiembre - VILLA PIP </span>
+                                    <span class="text-[10px] text-brown-600 block mt-0.5"><i class="fa-solid fa-phone text-[8px] mr-1"></i>Contacto: 972 529 250 (Maruja Díaz)</span>
+                                </div>
+                                <button onclick="coordinateGift('972529250', 'Calle Roma Mz D Lt. 76, Urb. 15 de Septiembre - VILLA PIP ')" class="text-[8px] uppercase font-bold tracking-wider text-white bg-brown-600 hover:bg-brown-800 transition-colors px-2.5 py-1.5 rounded-lg shadow-sm flex items-center self-end sm:self-auto">
+                                    <i class="fa-brands fa-whatsapp mr-1 text-xs"></i> Coordinar
+                                </button>
+                            </div>
+
+                            <!-- Dirección 3 -->
+                            <div class="bg-brown-50/50 p-3.5 rounded-xl border border-brown-200/70 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                                <div class="text-left">
+                                    <span class="text-[8px] uppercase font-bold text-brown-500 block">Dirección Alterna (Chiclayo)</span>
+                                    <span class="text-xs font-semibold text-brown-800">Calle Los Combatientes 707, Upis Cruz del Perdón</span>
+                                    <span class="text-[10px] text-brown-600 block mt-0.5"><i class="fa-solid fa-phone text-[8px] mr-1"></i>Contacto: 938 181 198 (Ana)</span>
+                                </div>
+                                <button onclick="coordinateGift('938181198', 'Calle Los Combatientes 707, Upis Cruz del Perdón')" class="text-[8px] uppercase font-bold tracking-wider text-white bg-brown-600 hover:bg-brown-800 transition-colors px-2.5 py-1.5 rounded-lg shadow-sm flex items-center self-end sm:self-auto">
+                                    <i class="fa-brands fa-whatsapp mr-1 text-xs"></i> Coordinar
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="border-t border-brown-100 pt-4 text-[10px] uppercase tracking-widest text-brown-600 font-semibold mt-6 text-center">
+                        ¡Agradecemos inmensamente tu generosidad!
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FORMULARIO RSVP -->
+        <section class="py-16 relative z-10">
+            <div class="max-w-xl mx-auto px-4">
+                
+                <div class="bg-white/95 rounded-[35px] p-6 md:p-10 border border-brown-200 shadow-xl relative">
+                    <div class="text-center mb-8">
+                        <span class="text-brown-500 font-serif italic text-lg block">RSVP</span>
+                        <h2 class="font-serif text-2xl md:text-3xl text-brown-800 font-light mt-0.5">Confirmar Asistencia</h2>
+                        <div class="w-10 h-[1px] bg-brown-300 mx-auto mt-3"></div>
+                        <p class="text-brown-600 text-[10px] uppercase tracking-wider font-semibold mt-3">Agradecemos confirmar antes del 13 de Julio de 2026</p>
+                    </div>
+
+                    <form id="rsvp-form" onsubmit="sendRSVP(event)" class="space-y-5">
+                        
+                        <!-- Nombre -->
+                        <div>
+                            <label for="name" class="block text-[10px] uppercase tracking-wider text-brown-700 font-semibold mb-1.5">Nombre y Apellido</label>
+                            <input type="text" id="name" required class="w-full px-4 py-2.5 rounded-xl border border-brown-200 focus:outline-none focus:ring-1 focus:ring-brown-600 bg-white text-xs transition-all" placeholder="Ej: Juan Pérez">
+                        </div>
+
+                        <!-- Asistencia -->
+                        <div>
+                            <label class="block text-[10px] uppercase tracking-wider text-brown-700 font-semibold mb-1.5">¿Podrás acompañarnos?</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="border border-brown-200 rounded-xl p-3 flex items-center justify-center cursor-pointer hover:border-brown-600 bg-white transition-all shadow-sm">
+                                    <input type="radio" name="attendance" value="SI" checked class="accent-brown-700 mr-2">
+                                    <span class="text-[10px] font-semibold uppercase tracking-wider text-brown-800">Sí, allí estaré</span>
+                                </label>
+                                <label class="border border-brown-200 rounded-xl p-3 flex items-center justify-center cursor-pointer hover:border-brown-600 bg-white transition-all shadow-sm">
+                                    <input type="radio" name="attendance" value="NO" class="accent-brown-700 mr-2">
+                                    <span class="text-[10px] font-semibold uppercase tracking-wider text-brown-800">No podré asistir</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Pases -->
+                        <div id="pases-container" class="transition-all duration-300">
+                            <label for="passes" class="block text-[10px] uppercase tracking-wider text-brown-700 font-semibold mb-1.5">Número de pases confirmados</label>
+                            <select id="passes" class="w-full px-4 py-2.5 rounded-xl border border-brown-200 focus:outline-none focus:ring-1 focus:ring-brown-600 bg-white text-xs transition-all">
+                                <option value="Solo yo">Solo yo (1 persona)</option>
+                                <option value="Yo + 1 acompañante">Yo + 1 acompañante (2 personas)</option>
+                                <option value="numero de pases">El número que se me asignó de pases</option>
+                            </select>
+                            <p class="text-[9px] text-brown-500 italic mt-1.5 leading-normal">
+                                * Por favor, selecciona como máximo la cantidad de pases indicados en la invitación que te enviamos por WhatsApp.
+                            </p>
+                        </div>
+
+                        <!-- Botón de Envío -->
+                        <button type="submit" class="w-full bg-brown-700 hover:bg-brown-800 text-white py-3.5 rounded-xl font-semibold tracking-wider uppercase text-[10px] transition-colors duration-300 flex items-center justify-center shadow-md">
+                            <i class="fa-brands fa-whatsapp text-base mr-1.5"></i> Confirmar por WhatsApp
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="py-16 bg-brown-900 text-brown-50 text-center px-4 relative z-10 border-t border-brown-800/60">
+            <div class="max-w-md mx-auto space-y-3.5">
+                <h4 class="font-serif text-2xl font-light tracking-wider">Alejandro & Miluska</h4>
+                <div class="w-6 h-[1px] bg-brown-400 mx-auto"></div>
+                <p class="text-[9px] tracking-[0.2em] uppercase opacity-75">Pimentel · Boro · Chiclayo</p>
+                <p class="text-[11px] italic opacity-60 max-w-xs mx-auto">"Un amor que complementa la seriedad de una sonrisa con el brillo de una risa libre."</p>
+                <div class="pt-4">
+                    <p class="text-[9px] opacity-40">Diseñado con amor para nuestra familia y amigos más cercanos</p>
+                    <p class="text-[8px] opacity-30 mt-1">© 2026 · Todos los derechos reservados</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // ==============================================================
+        // TABLA DE CONVERSIÓN DE INVITADOS (Mapeo ID -> [Nombre del Invitado, Cantidad de Pases])
+        // Puedes cambiar, agregar o quitar invitados de esta lista fácilmente.
+        // ==============================================================
+        const GUEST_MAP = {
+            1: ["Silvana Aldana y Alexandra", 2],
+            2: ["Ana Aldana", 1],
+            3: ["Julio Aldana y Esposa", 2],
+            4: ["Franklin Aldana y Esposa", 2],
+            5: ["Frida Aldana y Familia", 3],
+            6: ["Gloria Aldana y Familia", 2],
+            7: ["Lucho Allende y Esposa", 2],
+            8: ["Paty Aldana y Familia", 2],
+            9: ["Manuela Quintana y Familia", 8],
+            10: ["Ana Quintana y Familia", 2],
+            11: ["Martin Rodriguez y Esposa", 2],
+            12: ["Frida Pintado Aldana y Familia", 2],
+            13: ["Jessica Segura Aldana y Familia", 2],
+            14: ["Maricarmen Zelada Aldana y Familia", 2],
+            15: ["Carlos Paico y Esposa", 2],
+            16: ["Renzo Justo y Esposa", 2],
+            17: ["Pedro Yovera y Familia", 5],
+            18: ["Yordan Yovera y Esposa", 2],
+            19: ["Jorge Peralez y Esposa", 2],
+            20: ["Edilmer Linares", 2],
+            21: ["Kevin Soraluz y Esposa", 2],
+            22: ["Emerson Soriano y Esposa", 2],
+            23: ["Nicolas Soriano y Familia", 2],
+            24: ["Franklin Mondragón y Esposa", 2],
+            25: ["Christian Yarlequé y Esposa", 2],
+            26: ["Yhomer Guillen y Esposa", 2],
+            27: ["Jose Arrascue y Esposa", 2],
+            28: ["Luis Barreto y Esposa", 2],
+            29: ["Mauricio Soraluz y Esposa", 9],
+            // Puedes añadir hasta 100 o más invitados aquí conservando la estructura.
+        };
+
+        // CONFIGURACIÓN DE CELULAR PARA RSVP (Reemplaza con tu número de WhatsApp real de confirmación)
+        const WHATSAPP_NUMBER = "51901047153"; 
+
+        // FECHA OBJETIVO (8 DE AGOSTO DE 2026)
+        const TARGET_WEDDING_DATE = new Date("August 8, 2026 12:00:00").getTime();
+
+        let isMusicPlaying = false;
+        const weddingAudio = document.getElementById('wedding-audio');
+
+        // Animación de sobre interactivo en 3D (MEJORADO: Más pausado para leer el nombre)
+        function openEnvelope() {
+            const band = document.getElementById('envelope-band');
+            const flap = document.getElementById('envelope-flap');
+            const flapRight = document.getElementById('envelope-flap-right');
+            const overlay = document.getElementById('welcome-overlay');
+            const buttonOpenEnvelope = document.getElementById('button-open-envelope');
+
+            // 1. Deslizar la faja dorada hacia la derecha
+            band.classList.add('slide-off');
+
+            // 2. Al medio de la animación, abrir la compuerta de encaje en 3D hacia la izquierda
+            setTimeout(() => {
+                flap.classList.add('open');
+                buttonOpenEnvelope.classList.add('hidden');
+            }, 800);
+
+            setTimeout(() => {
+                flapRight.classList.add('open');
+                buttonOpenEnvelope.classList.add('hidden');
+            }, 800);
+
+            // 3. Desvanecer la carátula completa para revelar la invitación e iniciar la música
+            // Se incrementa el retraso a 4500ms (4.5 segundos) para dar un tiempo ideal de lectura
+            setTimeout(() => {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                playMusic();
+            }, 8000);
+        }
+
+        // Respaldo para ver en silencio
+        function startInvitation(playAudio) {
+            openEnvelope();
+            if (!playAudio) {
+                setTimeout(() => {
+                    weddingAudio.pause();
+                    isMusicPlaying = false;
+                    updateMusicButtonState();
+                }, 1500);
+            }
+        }
+
+        function playMusic() {
+            weddingAudio.play().then(() => {
+                isMusicPlaying = true;
+                updateMusicButtonState();
+            }).catch(err => {
+                console.log("Error de reproducción de audio bloqueado por navegador.");
+            });
+        }
+
+        function toggleMusic() {
+            if (!isMusicPlaying) {
+                weddingAudio.play().then(() => {
+                    isMusicPlaying = true;
+                    updateMusicButtonState();
+                });
+            } else {
+                weddingAudio.pause();
+                isMusicPlaying = false;
+                updateMusicButtonState();
+            }
+        }
+
+        function updateMusicButtonState() {
+            const btn = document.getElementById('btn-music');
+            const icon = document.getElementById('music-icon');
+
+            if (isMusicPlaying) {
+                btn.classList.add('bg-brown-900');
+                btn.classList.remove('bg-brown-700');
+                icon.className = "fa-solid fa-volume-high text-xs";
+            } else {
+                btn.classList.remove('bg-brown-900');
+                btn.classList.add('bg-brown-700');
+                icon.className = "fa-solid fa-volume-xmark text-xs";
+            }
+        }
+
+        // Carrusel
+        let activeSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide-fade');
+
+        function rotateSlides() {
+            slides[activeSlideIndex].classList.remove('active');
+            activeSlideIndex = (activeSlideIndex + 1) % slides.length;
+            slides[activeSlideIndex].classList.add('active');
+        }
+        setInterval(rotateSlides, 6500);
+
+        // Contador
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = TARGET_WEDDING_DATE - now;
+
+            if (difference > 0) {
+                const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown-days').innerText = String(d).padStart(2, '0');
+                document.getElementById('countdown-hours').innerText = String(h).padStart(2, '0');
+                document.getElementById('countdown-minutes').innerText = String(m).padStart(2, '0');
+                document.getElementById('countdown-seconds').innerText = String(s).padStart(2, '0');
+            } else {
+                document.getElementById('countdown-days').innerText = "00";
+                document.getElementById('countdown-hours').innerText = "00";
+                document.getElementById('countdown-minutes').innerText = "00";
+                document.getElementById('countdown-seconds').innerText = "00";
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Envío de presentes
+        function coordinateGift(phone, address) {
+            const message = `¡Hola! Me gustaría coordinar para enviarles un detalle de matrimonio a la dirección: *${address}*. ✨🤵‍♂️👰‍♀️`;
+            const encodedText = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/51${phone}?text=${encodedText}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Envío de confirmación RSVP
+        function sendRSVP(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const attendance = document.querySelector('input[name="attendance"]:checked').value;
+            const passes = document.getElementById('passes').value;
+
+            let message = "";
+
+            if (attendance === "SI") {
+                message = `¡Hola Alejandro y Miluska! 🥂\n\nConfirmo con mucha alegría que estaré presente en el día de su boda en Pimentel y Boro el 8 de Agosto. ❤️\n\n*Detalles de Confirmación:*\n• *Nombre:* ${name}\n• *Pases:* ${passes}\n\n¡Qué emoción acompañarlos en este gran momento! Nos vemos pronto. ✨🌅`;
+            } else {
+                message = `¡Hola Alejandro y Miluska! 💫\n\nMuchas gracias por la invitación al día más importante de sus vidas. Lamentablemente, no podré acompañarlos físicamente en esta ocasión.\n\n• *Nombre:* ${name}\n\n¡Les envío un gran abrazo y mis mejores deseos para su nueva vida juntos! Los quiero mucho. 💕`;
+            }
+
+            const encodedText = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`;
+
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Manejo dinámico del campo de pases
+        const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
+        const pasesContainer = document.getElementById('pases-container');
+
+        attendanceRadios.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                if (e.target.value === "NO") {
+                    pasesContainer.style.maxHeight = '0px';
+                    pasesContainer.style.opacity = '0';
+                    pasesContainer.style.overflow = 'hidden';
+                } else {
+                    pasesContainer.style.maxHeight = '500px';
+                    pasesContainer.style.opacity = '1';
+                }
+            });
+        });
+
+        // ==============================================================
+        // LÓGICA DE PERSONALIZACIÓN INTEGRADA (?id=N y ?p=N)
+        // ==============================================================
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const guestId = urlParams.get('id');
+            const passesParam = urlParams.get('p');
+            
+
+            // 1. Obtención del Nombre según el ID
+            let finalGuestName = "Invitado Especial";
+            let passesDefault = 2; // Valor por defecto si no se especifica
+            if (guestId && GUEST_MAP[guestId]) {
+                finalGuestName = GUEST_MAP[guestId][0];
+                passesDefault = GUEST_MAP[guestId][1]; // Actualizar el valor de 'p' según la tabla
+            }
+
+            // Actualizar nombre en la tarjeta interior y pre-llenar en el formulario
+            document.getElementById('guest-card-name').innerText = finalGuestName;
+            document.getElementById('name').value = finalGuestName;
+
+            // 2. Control Dinámico de Pases
+            let maxPasses = 2; // Cantidad por defecto
+            if (passesParam) {
+                const parsedPasses = parseInt(passesParam, 10);
+                if (!isNaN(parsedPasses) && parsedPasses >= 1) {
+                    maxPasses = parsedPasses;
+                }
+            }
+
+            const passesSelect = document.getElementById('passes');
+            passesSelect.innerHTML = ''; // Limpiar opciones anteriores
+
+            // Generar dinámicamente las opciones válidas hasta el límite 'p'
+            for (let i = 1; i <= maxPasses; i++) {
+                const opt = document.createElement('option');
+                if (i === 1) {
+                    opt.value = "Solo yo";
+                    opt.textContent = "Solo yo (1 pase asignado)";
+                } else {
+                    opt.value = `Yo y ${i - 1} acompañante${i > 2 ? 's' : ''}`;
+                    opt.textContent = `Yo + ${i - 1} acompañante${i > 2 ? 's' : ''} (${i} pases asignados)`;
+                }
+                
+                // Seleccionar automáticamente la opción máxima permitida
+                if (i === maxPasses) {
+                    opt.selected = true;
+                }
+                passesSelect.appendChild(opt);
+            }
+
+            // 3. Activar el Panel de Novios si es ?admin=1 o ?generar=1
+            if (urlParams.get('admin') === '1' || urlParams.get('generar') === '1') {
+                buildAdminGuestTable();
+                document.getElementById('admin-panel').classList.remove('hidden');
+            }
+        });
+
+        // ==============================================================
+        // LÓGICA DE CONTROL DEL PANEL DE ADMINISTRACIÓN
+        // ==============================================================
+        function closeAdminPanel() {
+            document.getElementById('admin-panel').classList.add('hidden');
+        }
+
+        function buildAdminGuestTable() {
+            const tbody = document.getElementById('admin-guest-table-body');
+            tbody.innerHTML = ''; // Limpiar
+
+            const currentUrlBase = window.location.origin + window.location.pathname;
+
+            // Recorrer la tabla de conversión 'GUEST_MAP'
+            Object.keys(GUEST_MAP).forEach(id => {
+                const name = GUEST_MAP[id][0];
+                const passes = GUEST_MAP[id][1];
+
+                // Generar filas
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-brown-50/70 transition-colors";
+                
+                tr.innerHTML = `
+                    <td class="p-3 font-semibold text-brown-600">${id}</td>
+                    <td class="p-3 font-serif text-brown-800 font-medium">${name}</td>
+                    <td class="p-3 text-center">
+                        <input type="number" id="passes-input-${id}" value="${passes}" min="1" max="10" 
+                               class="w-12 px-2 py-1 border border-brown-200 rounded text-center outline-none focus:ring-1 focus:ring-brown-600">
+                    </td>
+                    <td class="p-3 text-right space-x-2">
+                        <button onclick="copyGeneratedLink(${id}, '${currentUrlBase}')" 
+                                class="bg-brown-100 hover:bg-brown-200 text-brown-800 text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg transition-colors">
+                            <i class="fa-solid fa-copy mr-1"></i> Link
+                        </button>
+                        <button onclick="copyAdminWhatsAppMessage(${id}, '${name}', '${currentUrlBase}')" 
+                                class="bg-green-600 hover:bg-green-700 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg transition-colors inline-flex items-center gap-1">
+                            <i class="fa-brands fa-whatsapp text-xs"></i> WhatsApp
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Copiar URL directa
+        function copyGeneratedLink(id, base) {
+            const pValue = document.getElementById(`passes-input-${id}`).value;
+            const fullLink = `${base}?id=${id}`;
+
+            copyTextToClipboard(fullLink, "¡Enlace personalizado copiado!");
+        }
+
+        // Copiar Saludo listo para enviar a WhatsApp
+        function copyAdminWhatsAppMessage(id, name, base) {
+            const pValue = document.getElementById(`passes-input-${id}`).value;
+            const fullLink = `${base}?id=${id}`;
+            const message = `¡Hola *${name}*! 👋\n\nEstamos muy felices de invitarlos a nuestra boda. Nos encantaría que nos acompañen en este día tan especial. 💍\n\nAquí pueden ver su invitación y pases asignados \n\n👉 ${fullLink}\n\n¡Los esperamos! ❤️`;            
+            copyTextToClipboard(message, "¡Mensaje de WhatsApp copiado!");
+        }
+
+        // Función de utilidad para copiar texto en ambientes Iframe
+        function copyTextToClipboard(text, successMessage) {
+            const tempTextarea = document.createElement('textarea');
+            tempTextarea.value = text;
+            document.body.appendChild(tempTextarea);
+            tempTextarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextarea);
+
+            // Mostrar feedback Toast
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-text').innerText = successMessage;
+            toast.style.opacity = '1';
+            setTimeout(() => {
+                toast.style.opacity = '0';
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
